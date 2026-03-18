@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imagem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;1,300&family=DM+Sans:wght@200;300&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        background: #0a0a0a;
+        overflow: hidden;
+      }
+
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero__bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("./imagem.jpg");
+        background-size: cover;
+        background-position: center;
+        animation: slowZoom 12s ease-out forwards;
+      }
+
+      .hero__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.35) 0%,
+          rgba(0, 0, 0, 0.25) 45%,
+          rgba(0, 0, 0, 0.65) 100%
+        );
+      }
+
+      .hero__content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 0 2rem;
+        opacity: 0;
+        animation: fadeUp 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards;
+      }
+
+      .hero__title {
+        font-family: "Playfair Display", serif;
+        font-weight: 300;
+        font-size: clamp(2.8rem, 7vw, 6rem);
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        color: #fff;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero__title em {
+        font-style: italic;
+      }
+
+      @keyframes slowZoom {
+        from {
+          transform: scale(1.06);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="hero__bg"></div>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <!-- <h1 class="hero__title">
+          Uma imagem que<br /><em>não precisa de palavras</em>
+        </h1> -->
+      </div>
+    </section>
+  </body>
+</html>
